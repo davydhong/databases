@@ -1,5 +1,5 @@
-CREATE DATABASE chat;
-USE chat;
+-- CREATE DATABASE chat;
+-- USE chat;
 -- CREATE TABLE messages (
 --   /* Describe your table here.*/
 -- );
@@ -39,24 +39,25 @@ create table Users
     id INT NOT NULL
     AUTO_INCREMENT,
   id_User INT,
-  Text VARCHAR
+  TEXT VARCHAR
     (400) NULL DEFAULT NULL,
-  id_Rooms INT,
+  RoomNames VARCHAR
+    (100) NULL DEFAULT NULL,
   PRIMARY KEY
     (id)
 );
-    DROP TABLE IF EXISTS Rooms;
-    CREATE TABLE Rooms
-    (
-      id INT NOT NULL
-      AUTO_INCREMENT,
-  RoomName VARCHAR
-      (100),
-  PRIMARY KEY
-      (id)
-);
-      ALTER TABLE Messages ADD FOREIGN KEY (id_User) REFERENCES Users (id);
-      ALTER TABLE Messages ADD FOREIGN KEY (id_Rooms) REFERENCES Rooms (id);
+    --     DROP TABLE IF EXISTS Rooms;
+    --     CREATE TABLE Rooms
+    --     (
+    --       id INT NOT NULL
+    --       AUTO_INCREMENT,
+    --   RoomName VARCHAR
+    --       (100),
+    --   PRIMARY KEY
+    --       (id)
+    -- );
+    ALTER TABLE Messages ADD FOREIGN KEY (id_User) REFERENCES Users (id);
+      -- ALTER TABLE Messages ADD FOREIGN KEY (id_Rooms) REFERENCES Rooms (id);
 
 -- ---
 -- Table Properties
